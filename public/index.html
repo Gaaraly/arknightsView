@@ -11,7 +11,7 @@
 			as="style"
 			onload="this.rel='stylesheet'"
 		/>
-		<title>Document</title>
+		<title>Arknights</title>
 	</head>
 	<body>
 		<div>
@@ -31,20 +31,20 @@
 			margin: 0 auto;
 		}
 	</style>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"/>
 	<script>
 		function sub() {
-			let params = $("#fm").serializeArray();
+			let params = $("#fm").serializeArray()
 			if (params[0].value && params[1].value) {
 				let obj = {
 					name: params[0].value,
 					location: params[1].value,
-				};
+				}
 				$.post("/user", obj, (res) => {
-					alert(JSON.stringify(res));
-				});
+					alert(JSON.stringify(res))
+				})
 			} else {
-				alert("请输入信息!");
+				alert("请输入信息!")
 			}
 		}
 	</script>
