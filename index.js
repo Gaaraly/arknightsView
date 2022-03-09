@@ -34,9 +34,9 @@ app.get("/users", (req, res) => {
 })
 
 app.post("/user", (req, res) => {
-	const { name, location } = req.body
+	const { name, pwd } = req.body
 	console.log(req.body)
-	res.send({ status: "User created", name, location })
+	res.send({ status: "User created", name, pwd })
 })
 
 // Listen on port 5000

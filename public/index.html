@@ -11,14 +11,14 @@
 			as="style"
 			onload="this.rel='stylesheet'"
 		/>
-		<title>Arknights</title>
+		<title>ArkV</title>
 	</head>
 	<body>
 		<div>
-			<h1 style="text-align: center">Welcome to a basic express App</h1>
+			<h1 style="text-align: center">Welcome to ArkV</h1>
 			<form id="fm" action="#" method="post">
-				<p>Name: <input type="text" name="name" class="ipt" /></p>
-				<p>Location: <input type="text" name="location" class="ipt" /></p>
+				<p>Phone: <input type="text" name="name" class="ipt" /></p>
+				<p>Password: <input type="password" name="pwd" class="ipt" /></p>
 				<input type="button" value="Submit" class="ipt" onclick="sub()" />
 			</form>
 		</div>
@@ -31,14 +31,14 @@
 			margin: 0 auto;
 		}
 	</style>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"/>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 	<script>
 		function sub() {
 			let params = $("#fm").serializeArray()
 			if (params[0].value && params[1].value) {
 				let obj = {
 					name: params[0].value,
-					location: params[1].value,
+					pwd: params[1].value,
 				}
 				$.post("/user", obj, (res) => {
 					alert(JSON.stringify(res))
