@@ -21,6 +21,7 @@
 				<p>Password: <input type="password" name="pwd" class="ipt" /></p>
 				<input type="button" value="Submit" class="ipt" onclick="sub()" />
 			</form>
+			<div id="App"></div>
 		</div>
 	</body>
 	<style>
@@ -36,12 +37,12 @@
 		function sub() {
 			let params = $("#fm").serializeArray()
 			if (params[0].value && params[1].value) {
-				let obj = {
-					name: params[0].value,
-					pwd: params[1].value,
+				let user = {
+					phone: params[0].value,
+					password: params[1].value,
 				}
-				$.post("/user", obj, (res) => {
-					alert(JSON.stringify(res))
+				$.post("/user", user, (res) => {
+					console.log(res.nickName)
 				})
 			} else {
 				alert("请输入信息!")

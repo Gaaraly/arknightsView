@@ -1,5 +1,6 @@
 const express = require("express")
 const path = require("path")
+const arknights = require("./module/arknights")
 const app = express()
 
 const port = 5000
@@ -33,10 +34,20 @@ app.get("/users", (req, res) => {
 	])
 })
 
+// app.post("/user", (req, res) => {
+// 	const { name, pwd } = req.body
+// 	console.log(req.body)
+// 	res.send({ status: "User created", name, pwd })
+// })
 app.post("/user", (req, res) => {
-	const { name, pwd } = req.body
-	console.log(req.body)
-	res.send({ status: "User created", name, pwd })
+	const data = req.body
+	console.log(JSON.stringify(data))
+	const result = arknights.getData(data)
+	if (result) {
+		res.send(result)
+	} else {
+		res.send(500)
+	}
 })
 
 // Listen on port 5000
